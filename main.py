@@ -23,3 +23,10 @@ for i in range(0,subject_num):
         expression = str(num1) + symbol[n1] + str(num2)
     else:
         expression = str(num1) + symbol[n1] + str(num2) + symbol[n2] + str(num3)
+    file_handle1 = open('Exercises.txt','a')#写入题目
+    file_handle1.writelines( '四则运算题目.' + str(i) +  '\t'  + expression + '=' + '\n')
+    file_handle1.close()
+    result = eval(expression)  # 题目答案
+    result = Fraction(result).limit_denominator()  #结果转化为近似分数
+    w = result.numerator
+    r = result.denominator
